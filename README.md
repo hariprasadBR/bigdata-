@@ -15,3 +15,5 @@ In Hadoop 2 onwards resource management and job scheduling or monitoring functio
 - YARN Resource Manager’s scheduler is responsible for the coordination of resource allocation of the cluster among the running applications.
 - The YARN Node Manager runs on each node and does node-level resource management, coordinating with the Resource manager. It launches and monitors the compute containers on the machine on the cluster.
 - Application Master helps the resources from Resource Manager and use Node Manager to run and coordinate MapReduce tasks.
+- HDFS is usually used to share the job files between other entities.
+- ![mapreducer](https://user-images.githubusercontent.com/84274712/140618998-93b398c8-4c8e-4bd7-b398-97412a6bb879.PNG)
