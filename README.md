@@ -17,3 +17,26 @@ In Hadoop 2 onwards resource management and job scheduling or monitoring functio
 - Application Master helps the resources from Resource Manager and use Node Manager to run and coordinate MapReduce tasks.
 - HDFS is usually used to share the job files between other entities.
 - ![mapreducer](https://user-images.githubusercontent.com/84274712/140618998-93b398c8-4c8e-4bd7-b398-97412a6bb879.PNG)
+# Phases of the MapReduce model
+MapReduce model has three major and one optional phase:
+
+### 1. Mapper
+It is the first phase of MapReduce programming and contains the coding logic of the mapper function.
+The conditional logic is applied to the ‘n’ number of data blocks spread across various data nodes.
+Mapper function accepts key-value pairs as input as (k, v), where the key represents the offset address of each record and the value represents the entire record content.
+The output of the Mapper phase will also be in the key-value format as (k’, v’).
+### 2. Shuffle and Sort
+The output of various mappers (k’, v’), then goes into Shuffle and Sort phase.
+All the duplicate values are removed, and different values are grouped together based on similar keys.
+The output of the Shuffle and Sort phase will be key-value pairs again as key and array of values (k, v[]).
+### 3. Reducer
+The output of the Shuffle and Sort phase (k, v[]) will be the input of the Reducer phase.
+In this phase reducer function’s logic is executed and all the values are aggregated against their corresponding keys.
+Reducer consolidates outputs of various mappers and computes the final job output.
+The final output is then written into a single file in an output directory of HDFS.
+### 4. Combiner
+It is an optional phase in the MapReduce model.
+The combiner phase is used to optimize the performance of MapReduce jobs.
+In this phase, various outputs of the mappers are locally reduced at the node level.
+For example, if different mapper outputs (k, v) coming from a single node contains duplicates, then they get combined i.e. locally reduced as a single (k, v[]) output.
+This phase makes the Shuffle and Sort phase work even quicker thereby enabling additional performance in MapReduce jobs.
