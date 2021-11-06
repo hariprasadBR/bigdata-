@@ -1,7 +1,22 @@
 # Word Count - Hadoop Map Reduce Example – How it works?
 ![shuffle](https://user-images.githubusercontent.com/84274712/140618617-378c69d3-826b-4b23-a3ef-f076821bef20.PNG)
+Explanation: Taking in STDIN and STDOUT ( standard input and standard output ) helps passing data between the Reduce and Map code. sys.stdout to print the output and sys stdin to read the input is used in Python.
 
-Hadoop WordCount operation occurs in 3 stages –
+Splitting: The parameter of splitter can be anything. By comma, space, by a new line or a semicolon.
+
+Mapping: This is done as explained below.
+
+Shuffle / Intermediate splitting: The process is usually parallel on cluster keys. The output of the map gets into the Reducer phase and all the similar keys of data are aligned in a cluster.
+
+Reduce: This is done as explained below. Final result – All the data is clustered or combined to show the together form of a result.
+
+The input given is converted into the string. Then it toknises them into words as if it need to break them. The mapper will append a single number or digit to each word and mapper outputs are shown above. Once we get the outputs as key-value pairs, once we pass the offset address as input to the mapper, the output of the value would be key-value pairs.
+
+The output is getting into the sorting and shuffling phase. When we sort based on keys, all the keys will come to once a particular place. Sorting on the keys and shuffling the keys is done. A single word will go to a single reducer. Input to the reducer is key-value pairs. Once we pass outputs to reducer as input, the reducer will sum up all the values to keys.
+
+That is, it groups up all the similar keys and output would be the concatenated key-value pair. The reducer will pick the result from the temp path and it will arrive at the final result.  When we execute map-reduce, the input and output should be created in HDFS. Which is why import a lot of files that will help do the word count. We use something called a job client to do configuration. Extends configure and implements the tools.
+
+## Hadoop WordCount operation occurs in 3 stages –
 
 1) Mapper Phase
 2) Shuffle Phase
