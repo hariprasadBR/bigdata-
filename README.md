@@ -40,3 +40,30 @@ The combiner phase is used to optimize the performance of MapReduce jobs.
 In this phase, various outputs of the mappers are locally reduced at the node level.
 For example, if different mapper outputs (k, v) coming from a single node contains duplicates, then they get combined i.e. locally reduced as a single (k, v[]) output.
 This phase makes the Shuffle and Sort phase work even quicker thereby enabling additional performance in MapReduce jobs.
+
+
+Benefits of MapReduce
+Here are the benefits of MapReduce mentioned below.
+
+#### 1. Fault-tolerance
+During the middle of a map-reduce job, if a machine carrying a few data blocks fails architecture handles the failure.
+It considers replicated copies of the blocks in alternate machines for further processing.
+#### 2. Resilience
+Each node periodically updates its status to the master node.
+If a slave node doesn’t send its notification, the master node reassigns the currently running task of that slave node to other available nodes in the cluster.
+#### 3. Quick
+Data processing is quick as MapReduce uses HDFS as the storage system.
+MapReduce takes minutes to process terabytes of unstructured large volumes of data.
+#### 4. Parallel Processing
+MapReduce tasks process multiple chunks of the same datasets in-parallel by dividing the tasks.
+This gives the advantage of task completion in less time.
+#### 5. Availability
+Multiple replicas of the same data are sent to numerous nodes in the network.
+Thus, in case of any failure, other copies are readily available for processing without any loss.
+#### 6. Scalability
+Hadoop is a highly scalable platform.
+Traditional RDBMS systems are not scalable according to the increase in data volume.
+MapReduce lets you run applications from a huge number of nodes, using terabytes and petabytes of data.
+#### 7. Cost-effective
+Hadoop’s scale-out feature along with MapReduce programming lets you store and process data in a very effective and affordable manner.
+Cost savings can be massive as figures of hundreds for terabytes of data.
