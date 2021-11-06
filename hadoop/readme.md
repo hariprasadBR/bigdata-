@@ -1,9 +1,17 @@
 # Word Count - Hadoop Map Reduce Example – How it works?
+![shuffle](https://user-images.githubusercontent.com/84274712/140618617-378c69d3-826b-4b23-a3ef-f076821bef20.PNG)
+
 Hadoop WordCount operation occurs in 3 stages –
 
 1) Mapper Phase
 2) Shuffle Phase
 3) Reducer Phase
+
+## 1. Map() Function
+Create and process the import data. Takes in data, converts it into a set of other data where the breakdown of individual elements into tuples is done. No API contract requiring a certain number of outputs.
+
+## 2. Reduce() Function
+Mappers’ output is passed into the reduction. Processes the data into something usable. Every single mapper is passed into the reduced function. The new output values are saved into HDFS. A concept called streaming is used in writing a code for word count in Python using MapReduce. Let’s look at the mapper Python code and a Reducer Python code and how to execute that using a streaming jar file. The API has a technical name for this task which is shuffle and sort phase.
 
 ### Hadoop WordCount Example- Mapper Phase Execution
 The text from the input text file is tokenized into words to form a key value pair with all the words present in the input text file. The key is the word from the input file and value is ‘1’.
