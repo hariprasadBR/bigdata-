@@ -42,6 +42,16 @@ For example, if different mapper outputs (k, v) coming from a single node contai
 This phase makes the Shuffle and Sort phase work even quicker thereby enabling additional performance in MapReduce jobs.
 
 
+# Working with MapReduce Algorithm
+To work with MapReduce Algorithm, you must know the complete process of how it works. The data which is ingested goes through the following steps:
+#### 1. Input Splits: Any input data which comes to MapReduce job is divided into equal pieces known as input splits. It is a chunk of input which can be consumed by any of the mappers.
+
+#### 2. Mapping: Once the data is split into chunks it goes through the phase of mapping in the map-reduce program. This split data is passed to mapping function which produces different output values.
+
+#### 3. Shuffling: Once the mapping is done, the data is sent to this phase. Its job is to amalgamate the required records from the previous phase.
+
+#### 4. Reducing: In this phase, the output from the shuffling phase is aggregated. In this phase, all values are shuffled and brought together by aggregation so that it returns a single output value. It creates a summary of the complete data set.
+
 Benefits of MapReduce
 Here are the benefits of MapReduce mentioned below.
 
